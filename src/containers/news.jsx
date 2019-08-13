@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import { Route, Redirect } from "react-router-dom";
 import { connect } from 'react-redux';
 
+import CONTENT from '../store/content';
+
 // Styles
 import '../scss/layouts/_app.scss';
 
