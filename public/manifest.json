@@ -1,6 +1,6 @@
 {
-  "short_name": "Samovarov.pro",
-  "name": "Create React App Sample",
+  "short_name": "react-test-example",
+  "name": "Create React App with Router and Redux Test Example",
   "icons": [
     {
       "src": "favicon.ico",

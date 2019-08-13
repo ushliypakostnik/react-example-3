@@ -1,52 +1,70 @@
 import React, { Component } from "react";
 /* eslint-disable no-unused-vars */
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Route, Redirect, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import { fetchAlbums } from '../store/actions';
-
-import Header from './header';
-import Page from './page';
-import Resize from './resize';
-
 // Styles
-import '../normalize.css';
-import { StyleBase } from '../scss/_stylebase.scss';
 import '../scss/layouts/_app.scss';
+
+import News from './news';
+
+function Login() {
+  return <h1>Login</h1>;
+}
+
+function Page404() {
+  return <h1>Page Not Found!!!</h1>;
+}
+
+function PrivateRoute ({component: Component, auth, ...rest}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => auth
+        ? <Component {...props} isAuth={auth} />
+        : <Redirect to='/login' />}
+    />
+  )
+}
+
+function LoginRoute ({component: Component, auth, ...rest}) {
+  return (
+    <Route
+      {...rest}
+      render={(props) => auth
+        ? <Redirect to='/' />
+        : <Component {...props} />}
+    />
+  )
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      albums: []
+      isAuth: false,
     };
   }
 
   static getDerivedStateFromProps = (nextProps, prevState) => ({
-    albums: nextProps.albums
+    isAuth: nextProps.isAuth,
   });
 
   componentDidMount() {
-    this.props.fetchAlbums();
+
   }
 
   render() {
-    const { albums } = this.state;
+    const { isAuth } = this.state;
+    console.log( 'App: ', isAuth );
 
     return (
       <div className="app">
-        <Resize />
-        <Header items={albums} />
         <Switch>
-          {albums.map((item, index) => {
-            return <Route
-              exact={index > 0 ? false : true}
-              key={index}
-              path={item.path}
-              component={props => <Page {...props} path={item.text} />}
-            />
-          })}
+          <LoginRoute path="/login" auth={ isAuth } component={ Login } />
+          <PrivateRoute exact path="/" auth={ isAuth } component={ News } />
+          <Route component={ Page404 } />
         </Switch>
       </div>
     );
@@ -54,11 +72,10 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  albums: state.reducer.albums
+  isAuth: state.reducer.isAuth,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchAlbums: () => dispatch(fetchAlbums())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

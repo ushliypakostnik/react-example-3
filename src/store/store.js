@@ -6,7 +6,6 @@ import { browserHistory } from "react-router";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 import { INITIAL_STATE } from './constants';
-import { pageToActive } from './actions';
 import reducer from './reducers';
 
 const middlewares = [];
@@ -42,11 +41,11 @@ if (store.getState().routing.locationBeforeTransitions != null) {
   lastUrl = "/";
 }
 
-//store.subscribe(() => {
-//  console.log("Store: ", store.getState());
-//  console.log("last Url: ", lastUrl);
-//});
+// store.subscribe(() => {
+//   console.log("Store: ", store.getState());
+//   console.log("last Url: ", lastUrl);
+// });
 
-store.dispatch(pageToActive(lastUrl));
+// history.push(lastUrl);
 
 export default store;

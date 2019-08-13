@@ -42,34 +42,6 @@ describe('app render', () => {
     expect(wrapper.find('.app')).toHaveLength(1);
   });
 
-  it('app contain resize', () => {
-    expect(wrapper.find('Resize')).toHaveLength(1);
-  });
-
-  it('app contain header', () => {
-    expect(wrapper.find('Header')).toHaveLength(1);
-  });
-
-  it('app contain switch', () => {
-    expect(wrapper.find('Switch')).toHaveLength(1);
-  });
-
-  it('app contain route', () => {
-    expect(wrapper.find('Route')).toHaveLength(1);
-  });
-
-  it('app contain page', () => {
-    expect(wrapper.find('Page')).toHaveLength(1);
-  });
-
-  it('app contain album', () => {
-    expect(wrapper.find('Album')).toHaveLength(1);
-  });
-
-  it('app contain gallery', () => {
-    expect(wrapper.find('Gallery')).toHaveLength(1);
-  });
-
   it('app componentDidMount', () => {
     const spy = jest.spyOn(wrapper.find('App').instance(), 'componentDidMount');
     wrapper.find('App').instance().componentDidMount();

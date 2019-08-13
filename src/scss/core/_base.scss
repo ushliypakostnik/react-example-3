@@ -1,3 +1,5 @@
+@import "../utils/_variables.scss";
+
 // Main Elements
 //////////////////////////////////////////////////////
 
@@ -11,9 +13,14 @@ html {
 body {
   height: 100%;
   color: $color_text;
-  background: $color_black;
+  background: $color_white;
+  margin: 0;
   padding: 0;
   quotes: "\00ab" "\00bb";
+
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 
   overflow-x: hidden; // not scrolling horizontal body
 
@@ -37,14 +44,8 @@ a {
   }
 }
 
-header nav {
-  display: inline-block;
-
-  @include xs {
-    display: block;
-  }
-}
-
-address {
-  font-style: normal;
+ul {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
 }
