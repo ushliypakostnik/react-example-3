@@ -1,0 +1,57 @@
+// Typography
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+// Typographic Variables
+//////////////////////////////////////////////////////
+
+// Good line-height and letter-spacing
+$line-height_base: 1.428571429;
+$normal-letter-spacing: normal;
+
+// Guide
+
+$font-size_base: 16px;
+$font-size_coefficient_large: 2;
+$font-size_coefficient_normal: 1.15;
+$font-size_coefficient_small: 0.9;
+$font-size_coefficient_xsmall: 0.8;
+
+$font-size_large: round($font-size_base * $font-size_coefficient_large); // 24px
+$font-size_normal: round($font-size_base * $font-size_coefficient_normal); // 18px
+$font-size_small: round($font-size_base * $font-size_coefficient_small); // 14px
+$font-size_xsmall: round($font-size_base * $font-size_coefficient_xsmall); // 13px
+
+$line-height_computed: round($font-size_base * $line-height_base);
+$line-height_large: floor($line-height_computed * $font-size_coefficient_large); // 34px
+$line-height_normal: floor($line-height_computed * $font-size_coefficient_normal); // 26px
+$line-height_small: floor($line-height_computed * $font-size_coefficient_small); // 20px
+$line-height_xsmall: floor($line-height_computed * $font-size_coefficient_xsmall); // 18px
+
+$font-family_sans: "Open Sans", Helvetica, Arial, sans-serif;
+$font-weight_sans_light: 300;
+$font-weight_sans_semibold: 600;
+
+// Universal Typographic Mixin
+//////////////////////////////////////////////////////
+
+// Используем одну, только одну, Карл, универсальную примесь для всех случаев!!!!!!!!!!
+
+@mixin text($font-family, $font-size, $font-weight) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  letter-spacing: $normal-letter-spacing;
+
+  @if $font-size == $font-size_large {
+    line-height: $line-height_large;
+  } @else if $font-size == $font-size_normal {
+    line-height: $line-height_normal;
+  } @else if $font-size == $font-size_small {
+    line-height: $line-height_small;
+  } @else if $font-size == $font-size_xsmall {
+    line-height: $line-height_xsmall;
+  } @else {
+    line-height: floor($font-size * $line-height_base);
+  }
+}

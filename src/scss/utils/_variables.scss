@@ -1,0 +1,72 @@
+// Project variables
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
+
+$fade: 8%;
+
+$image-path: "../../images/";
+
+// Colors
+//////////////////////////////////////////////////////
+
+// Palette
+
+$color_white: #fff;
+$color_black: #000;
+
+// Text
+
+$color_text: $color_white;
+$color_text_light-theme: rgb(125, 125, 125);
+
+// Links
+
+$color_link: #557aa7;
+$color_link-hover: #44529c;
+
+// Effects
+//////////////////////////////////////////////////////
+
+$transition_duration: 0.2s;
+$transition_timing-function: ease-out;
+$transition_delay: 0s;
+
+
+// Layouts
+//////////////////////////////////////////////////////
+
+$body-layoyt: 900;
+$header-layout: 1100;
+$overlay-layout: 1300;
+$panel-layout: 1500;
+
+
+// Sizes
+//////////////////////////////////////////////////////
+
+$size: 20px;
+
+
+// Breackpoints and containers
+//////////////////////////////////////////////////////
+
+// Extra small screen / XS / phone
+$breackpoint_xs:                  421px !global;
+$breackpoint_xs_min:              $breackpoint_xs !global;
+
+// Small screen / SM / tablet
+$breackpoint_sm:                  1000px !global;
+$breackpoint_sm_min:              $breackpoint_sm !global;
+
+// Medium screen / MD desktop / нетбуки типо чтоле
+$breackpoint_md:                  1200px !global;
+$breackpoint_md_min:              $breackpoint_md !global;
+
+// Large screen / LG desktop / небольшие экраны - ноуты
+$breackpoint_lg:                  1600px !global;
+$breackpoint_lg_min:              $breackpoint_lg !global;
+
+$breackpoint_xs_max:              ($breackpoint_sm_min - 1) !global;
+$breackpoint_sm_max:              ($breackpoint_md_min - 1) !global;
+$breackpoint_md_max:              ($breackpoint_lg_min - 1) !global;

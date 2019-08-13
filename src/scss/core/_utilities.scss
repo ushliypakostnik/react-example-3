@@ -1,0 +1,13 @@
+// Utilities
+//////////////////////////////////////////////////////
+
+// Rubber Container
+.container-fluid {
+  padding-left: $size;
+  padding-right: $size;
+
+  @include xs {
+    padding-left: $size / 2;
+    padding-right: $size / 2;
+  }
+}

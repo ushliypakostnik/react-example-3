@@ -1,0 +1,425 @@
+@import "../_stylebase.scss";
+
+$header-height: 50px;
+$header-height-mobile: 40px;
+
+// Main Layout
+//////////////////////////////////////////////////////
+
+.app {
+  min-height: calc(100vh + 1px);
+
+  &__menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    > li {
+      a {
+        @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
+      }
+    }
+
+    // Menu on desktop
+    .app__header & {
+      display: inline-block;
+
+      > li {
+        display: inline-block;
+        margin-right: $size * 3;
+        padding-top: 12px;
+
+        // stylelint-disable max-nesting-depth
+        a {
+          opacity: 0.5;
+          @include link-style($color_white, $color_white);
+          @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
+
+          @include md-and-sm {
+            @include text($font-family_sans, $font-size_small, $font-weight_sans_semibold);
+          }
+
+          @include sm {
+            @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_semibold);
+          }
+
+          // Active class
+          &.app__menu--active {
+            opacity: 1;
+          }
+        }
+
+        // stylelint-disable-next-line selector-max-compound-selectors
+        a svg {
+          margin-right: $size / 2;
+        }
+
+        @include md-and-sm {
+          padding-top: 15px;
+          margin-right: $size * 2;
+        }
+        // stylelint-enable max-nesting-depth
+      }
+
+      @include xs {
+        display: none;
+      }
+    }
+
+    // Menu on mobile
+    .app__panel & {
+      display: block;
+      padding-top: 25px;
+      padding-left: 15px;
+
+      > li {
+        display: block;
+        margin-bottom: 30px;
+
+        @media (max-height: 400px) {
+          margin-bottom: 15px;
+        }
+
+        a {
+          opacity: 0.75;
+          @include link-style($color_black, $color_black);
+          @include text($font-family_sans, $font-size_normal, $font-weight_sans_semibold);
+
+          // Active class
+          &.app__menu--active { // stylelint-disable-line max-nesting-depth
+            @include link-style($color_white, $color_white);
+          }
+        }
+      }
+    }
+  }
+
+  &__header {
+    padding-top: 50px;
+    padding-top: 10vh; // stylelint-disable-line declaration-block-no-duplicate-properties
+    height: $header-height-mobile;
+    width: 100%;
+    position: sticky;
+    top: -50px;
+    top: -10vh; // stylelint-disable-line declaration-block-no-duplicate-properties
+    z-index: $header-layout;
+
+    @include not-xs {
+      height: $header-height;
+    }
+  }
+
+  &__panel {
+    &:focus {
+      outline: none;
+    }
+
+    @include not-xs {
+      display: none;
+    }
+  }
+
+  &__resize {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    z-index: 0;
+    @include size(100%, 100%);
+
+    > div {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      z-index: 0;
+      @include size(100%, 100%);
+    }
+  }
+
+  &__gallery {
+    position: relative;
+  }
+
+  &__page {
+    background: $color_black;
+  }
+
+  &__theme-switch {
+    display: inline-block;
+    margin-right: 17vw;
+    opacity: 0.5;
+
+    @include md-and-sm {
+      position: relative;
+      top: 2px;
+    }
+
+    @include md {
+      margin-right: 12vw;
+    }
+
+    @include sm {
+      margin-right: 8vw;
+    }
+  }
+}
+
+// Witgets
+//////////////////////////////////////////////////////
+
+.header {
+  background: $color_black;
+
+  &__right {
+    color: $color_white;
+    float: none;
+    white-space: nowrap;
+    padding-right: 40px;
+
+    @include md-and-sm {
+      padding-top: 9px;
+    }
+
+    @include sm {
+      padding-top: 7px;
+      padding-right: 0;
+    }
+
+    @include not-xs {
+      float: right;
+    }
+
+    @include xs {
+      padding-top: 6px;
+      padding-right: 0;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    opacity: 0.5;
+    @include link-style($color_white, $color_white);
+    @include text($font-family_sans, $font-size_large, $font-weight_sans_light);
+
+    @include not-lg {
+      @include text($font-family_sans, round($font-size_normal * 1.25), $font-weight_sans_light);
+    }
+
+    @include not-xs {
+      margin-left: $size;
+    }
+
+    @include xs {
+      display: none;
+    }
+
+    &--xs {
+      display: none;
+      margin-right: $size * 1.5;
+
+      @include xs {
+        display: inline-block;
+        @include text($font-family_sans, round($font-size_normal * 1.1), $font-weight_sans_light);
+      }
+
+      @include min {
+        position: relative;
+        top: -1px;
+        margin-right: $size * 1.25;
+        @include text($font-family_sans, round($font-size_normal * 0.8), $font-weight_sans_light);
+      }
+    }
+  }
+
+  &__social {
+    display: inline-block;
+    position: relative;
+    top: 4px;
+    height: 27px;
+    opacity: 0.5;
+    margin-right: $size * 2;
+    @include link-style($color_white, $color_white);
+    @include text($font-family_sans, round($font-size_normal * 1.5), $font-weight_sans_light);
+
+    @include not-lg {
+      height: 24px;
+      top: 3px;
+      margin-right: $size * 1.5;
+      @include text($font-family_sans, round($font-size_normal * 1.1), $font-weight_sans_light);
+    }
+
+    @include xs {
+      height: 27px;
+      margin-right: $size;
+      @include text($font-family_sans, round($font-size_small * 1.4), $font-weight_sans_light);
+    }
+
+    // stylelint-disable no-descending-specificity
+    svg {
+      vertical-align: top;
+    }
+
+    &--lj {
+      @include size (27px, 27px);
+
+      @include not-lg {
+        @include size (19px, 24px);
+      }
+
+      @include xs {
+        @include size (19px, 27px);
+      }
+
+      svg {
+        fill: $color_white;
+      }
+    }
+
+    &--vk svg {
+      position: relative;
+      top: 2px;
+
+      @include not-lg {
+        top: 1px;
+      }
+    }
+    // stylelint-enable no-descending-specificity
+  }
+
+  &__navbar {
+    opacity: 0.5;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: block;
+    font-size: 20px;
+    line-height: $header-height-mobile;
+    text-align: center;
+    @include link-style($color_white, $color_white);
+    @include size($header-height-mobile, $header-height-mobile);
+
+    .anticon.anticon-menu {
+      position: relative;
+      top: -3px;
+      display: inline-block;
+      vertical-align: middle;
+      height: 20px;
+
+      svg {
+        vertical-align: top;
+      }
+    }
+
+    @include not-xs {
+      display: none;
+    }
+
+    @include sm-and-xs {
+      right: 0;
+      left: auto;
+    }
+  }
+}
+
+.theme-switch {
+  white-space: nowrap;
+
+  &__ico {
+    display: inline-block;
+    border-radius: 50%;
+    background: $color_white;
+    margin-right: $size / 2;
+    @include size($size, $size);
+  }
+
+  &__label {
+    vertical-align: top;
+    @include link-style($color_white, $color_white);
+    @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
+    line-height: $size;
+  }
+
+  .header__right & {
+    display: none;
+
+    @include not-xs {
+      display: inline-block;
+    }
+  }
+
+  .app__panel & {
+    @include xs {
+      margin-top: $size * 1.5;
+      display: inline-block;
+    }
+  }
+}
+
+// Light theme
+//////////////////////////////////////////////////////
+
+.--light-theme {
+  & { // stylelint-disable-line no-duplicate-selectors
+    background: $color_white;
+    color: $color_text_light-theme;
+  }
+
+  .header {
+    background: $color_white;
+  }
+
+  .app__page {
+    background: $color_white;
+  }
+
+  .header__logo,
+  .header__social,
+  .header__navbar {
+    @include link-style($color_text_light-theme, $color_text_light-theme);
+  }
+
+  .header__social--lj svg { // stylelint-disable-line no-descending-specificity
+    fill: $color_text_light-theme;
+  }
+
+  .app__header {
+    .app__menu {
+      > li a { // stylelint-disable-line selector-max-compound-selectors
+        @include link-style($color_text-light-theme, $color_text-light-theme);
+      }
+    }
+
+    .theme-switch__ico {
+      background: $color_text_light-theme;
+    }
+
+    .theme-switch__label {
+      @include link-style($color_text_light-theme, $color_text_light-theme);
+    }
+  }
+
+  // Lightbox
+  .ril {
+    &__outer {
+      background: $color_white;
+    }
+
+    &__navButtonPrev {
+      background: url("#{$image-path}prev_light.svg") 50% 50% no-repeat;
+      background-size: cover;
+    }
+
+    &__navButtonNext {
+      background: url("#{$image-path}next_light.svg") 50% 50% no-repeat;
+      background-size: cover;
+    }
+
+    &__closeButton {
+      background: url("#{$image-path}close_light.svg") 50% 50% no-repeat;
+      background-size: cover;
+    }
+  }
+}
