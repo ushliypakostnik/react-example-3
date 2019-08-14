@@ -843,6 +843,7 @@ form .ant-input-group-wrapper {
             transform: scale(1);
   }
 }
+/* stylelint-enable */
 
 // Customization
 //////////////////////////////////////////////////////
@@ -855,9 +856,11 @@ form .ant-input-group-wrapper {
   border: 1px solid $color_border;
   border-radius: 3px;
 }
+
 .login-form-forgot {
   float: right;
 }
+
 .login-form-button {
   width: 100%;
 }

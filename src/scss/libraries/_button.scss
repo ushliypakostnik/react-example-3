@@ -1489,6 +1489,7 @@ a.ant-btn-lg {
 a.ant-btn-sm {
   line-height: 22px;
 }
+/* stylelint-enable */
 
 // Customization
 //////////////////////////////////////////////////////
@@ -1496,10 +1497,10 @@ a.ant-btn-sm {
 
 .ant-btn {
   @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
-}
 
-.ant-btn.ant-btn-link {
-  border: none;
-  padding-left: 0;
-  padding-right: 0;
+  &.ant-btn-link {
+    border: none;
+    padding-left: 0;
+    padding-right: 0;
+  }
 }

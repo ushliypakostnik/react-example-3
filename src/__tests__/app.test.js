@@ -12,21 +12,8 @@ const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe('app render', () => {
-
-  const props = {
-    albums: [ { text: 'pinhole', path: '/' },
-              { text:"wedding", path:"/wedding" },
-              { text:"concert", path:"/concert" },
-              { text:"pixelart", path:"/pixelart" } ]
-  };
-
-  const state = Object.assign({}, INITIAL_STATE, {
-    reducer: {
-      ...INITIAL_STATE.reducer,
-      albums: props.albums
-    }
-  });
-  const store = mockStore(state);
+  const props = {};
+  const store = mockStore(INITIAL_STATE);
 
   const wrapper = mount(<Provider store={store}>
                           <MemoryRouter>
@@ -35,7 +22,7 @@ describe('app render', () => {
                         </Provider>);
 
   it('app render correctly', () => {
-    //expect(toJson(wrapper)).toMatchSnapshot();
+    // expect(toJson(wrapper)).toMatchSnapshot();
   });
 
   it('app contain wrapper with class', () => {

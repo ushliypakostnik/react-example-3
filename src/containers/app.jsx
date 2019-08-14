@@ -41,6 +41,10 @@ class App extends Component {
     isAuth: nextProps.isAuth,
   });
 
+  componentDidMount() {
+    // for test
+  }
+
   render() {
     const { isAuth } = this.state;
 
