@@ -3,10 +3,6 @@
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 
-$fade: 8%;
-
-$image-path: "../../images/";
-
 // Colors
 //////////////////////////////////////////////////////
 
@@ -15,30 +11,26 @@ $image-path: "../../images/";
 $color_white: #fff;
 $color_black: #000;
 
+$color_gray_lighter: #fafafa;
+
 // Text
 
-$color_text: $color_black;
+$color_text: #6c7a89;
 
 // Links
 
 $color_link: #557aa7;
 $color_link-hover: #44529c;
 
+// Borders
+
+$color_border: #dadada;
+
+
 // Effects
 //////////////////////////////////////////////////////
 
-$transition_duration: 0.2s;
-$transition_timing-function: ease-out;
-$transition_delay: 0s;
-
-
-// Layouts
-//////////////////////////////////////////////////////
-
-$body-layoyt: 900;
-$header-layout: 1100;
-$overlay-layout: 1300;
-$panel-layout: 1500;
+$fade: 8%;
 
 
 // Sizes
@@ -51,11 +43,11 @@ $size: 20px;
 //////////////////////////////////////////////////////
 
 // Extra small screen / XS / phone
-$breackpoint_xs:                  421px !global;
+$breackpoint_xs:                  320px !global;
 $breackpoint_xs_min:              $breackpoint_xs !global;
 
 // Small screen / SM / tablet
-$breackpoint_sm:                  1000px !global;
+$breackpoint_sm:                  800px !global;
 $breackpoint_sm_min:              $breackpoint_sm !global;
 
 // Medium screen / MD desktop / нетбуки типо чтоле

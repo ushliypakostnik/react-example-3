@@ -1,0 +1,13 @@
+@import "../_stylebase.scss";
+
+// Outer page (For not auth users, Login and 404)
+//////////////////////////////////////////////////////
+
+.outer-page {
+  height: 100%;
+  background: $color_gray_lighter;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

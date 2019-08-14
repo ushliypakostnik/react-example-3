@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom";
 
-import './scss/core/_base.scss';
-
 import App from './containers/app';
 
 import * as serviceWorker from './serviceWorker';

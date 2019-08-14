@@ -1,0 +1,35 @@
+@import "../_stylebase.scss";
+
+// App parts
+//////////////////////////////////////////////////////
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
+
+  &__login {
+    .login-form {
+      margin-top: -8%;
+    }
+  }
+
+  &__page404 {
+    text-align: center;
+
+    .message {
+      margin-top: -10%;
+
+      @include xs {
+        margin-top: -20%;
+      }
+    }
+
+    h1,
+    h3 {
+      margin: 0;
+    }
+  }
+}

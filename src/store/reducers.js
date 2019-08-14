@@ -1,6 +1,8 @@
 import { INITIAL_STATE } from './constants';
 
-const reducer = (state, action) => {
+import { combineReducers } from 'redux';
+
+const auth = (state, action) => {
   if (typeof state === 'undefined') {
     return INITIAL_STATE;
   }
@@ -24,6 +26,33 @@ const reducer = (state, action) => {
     default:
       return state;
   }
+};
+
+const news = (state, action) => {
+  if (typeof state === 'undefined') {
+    return INITIAL_STATE;
+  }
+
+  switch (action.type) {
+    case 'NEWS_REQUEST':
+      return Object.assign({}, state, {
+      });
+    case 'NEWS_SUCCESS':
+      return Object.assign({}, state, {
+        news: action.news,
+      });
+    case 'NEWS_ERROR':
+      return Object.assign({}, state, {
+        error: action.error,
+      });
+    default:
+      return state;
+  }
 }
 
-export default reducer;
+const rootReducer = combineReducers({
+  auth,
+  news,
+});
+
+export default rootReducer;

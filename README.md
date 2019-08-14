@@ -1,5 +1,5 @@
-Samovarov.pro frontend project
-==============================
+Test frontend project
+=====================
 
 Deploy
 ------

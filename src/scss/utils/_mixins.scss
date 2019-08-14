@@ -7,36 +7,6 @@
 //////////////////////////////////////////////////////
 // Брекпоинты - смотреть в _variables.scss
 
-@mixin lg {
-  @media (min-width: $breackpoint_lg) {
-    @content;
-  }
-}
-
-@mixin not-lg {
-  @media (max-width: $breackpoint_md_max) {
-    @content;
-  }
-}
-
-@mixin md {
-  @media (min-width: $breackpoint_md) and (max-width: $breackpoint_md_max) {
-    @content;
-  }
-}
-
-@mixin md-and-sm {
-  @media (min-width: $breackpoint_sm) and (max-width: $breackpoint_md_max) {
-    @content;
-  }
-}
-
-@mixin sm {
-  @media (min-width: $breackpoint_sm) and (max-width: $breackpoint_sm_max) {
-    @content;
-  }
-}
-
 @mixin xs {
   @media (max-width: $breackpoint_xs_max) {
     @content;
@@ -45,18 +15,6 @@
 
 @mixin not-xs {
   @media (min-width: $breackpoint_sm) {
-    @content;
-  }
-}
-
-@mixin sm-and-xs {
-  @media (max-width: $breackpoint_sm_max) {
-    @content;
-  }
-}
-
-@mixin min {
-  @media (max-width: $breackpoint_xs) {
     @content;
   }
 }

@@ -1,22 +1,12 @@
 import React, { Component } from "react";
-/* eslint-disable no-unused-vars */
 import { Route, Redirect, Switch } from "react-router-dom";
 import { connect } from 'react-redux';
 
-// Styles
-import '../scss/layouts/_app.scss';
+import Login from './login';
+import Newslist from './newslist';
+import Page404 from '../components/page404';
 
-import News from './news';
-
-function Login() {
-  return <h1>Login</h1>;
-}
-
-function Page404() {
-  return <h1>Page Not Found!!!</h1>;
-}
-
-function PrivateRoute ({component: Component, auth, ...rest}) {
+const PrivateRoute = ({component: Component, auth, ...rest}) => {
   return (
     <Route
       {...rest}
@@ -25,9 +15,9 @@ function PrivateRoute ({component: Component, auth, ...rest}) {
         : <Redirect to='/login' />}
     />
   )
-}
+};
 
-function LoginRoute ({component: Component, auth, ...rest}) {
+const LoginRoute = ({component: Component, auth, ...rest}) => {
   return (
     <Route
       {...rest}
@@ -36,7 +26,7 @@ function LoginRoute ({component: Component, auth, ...rest}) {
         : <Component {...props} />}
     />
   )
-}
+};
 
 class App extends Component {
   constructor(props) {
@@ -51,31 +41,23 @@ class App extends Component {
     isAuth: nextProps.isAuth,
   });
 
-  componentDidMount() {
-
-  }
-
   render() {
     const { isAuth } = this.state;
-    console.log( 'App: ', isAuth );
 
     return (
       <div className="app">
         <Switch>
           <LoginRoute path="/login" auth={ isAuth } component={ Login } />
-          <PrivateRoute exact path="/" auth={ isAuth } component={ News } />
+          <PrivateRoute exact path="/" auth={ isAuth } component={ Newslist } />
           <Route component={ Page404 } />
         </Switch>
       </div>
     );
   }
-}
+};
 
 const mapStateToProps = (state) => ({
-  isAuth: state.reducer.isAuth,
+  isAuth: state.rootReducer.auth.isAuth,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, null)(App);

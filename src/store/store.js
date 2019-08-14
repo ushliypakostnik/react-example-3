@@ -2,11 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 import { browserHistory } from "react-router";
-//import { createBrowserHistory } from "history";
 import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 
 import { INITIAL_STATE } from './constants';
-import reducer from './reducers';
+import rootReducer from './reducers';
 
 const middlewares = [];
 middlewares.push(thunkMiddleware)
@@ -20,7 +19,7 @@ if (process.env.NODE_ENV !== 'production') {
 function configureStore(state) {
   return createStore(
     combineReducers({
-      reducer,
+      rootReducer,
       routing: routerReducer
     }),
     state,
@@ -30,22 +29,6 @@ function configureStore(state) {
 
 const store = configureStore(INITIAL_STATE);
 
-//const history = createBrowserHistory();
 export const history = syncHistoryWithStore(browserHistory, store);
-//history.listen(location => console.info('-> location:', location));
-
-let lastUrl = "";
-if (store.getState().routing.locationBeforeTransitions != null) {
-  lastUrl = store.getState().routing.locationBeforeTransitions.pathname;
-} else {
-  lastUrl = "/";
-}
-
-// store.subscribe(() => {
-//   console.log("Store: ", store.getState());
-//   console.log("last Url: ", lastUrl);
-// });
-
-// history.push(lastUrl);
 
 export default store;

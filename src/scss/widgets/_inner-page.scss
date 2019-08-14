@@ -1,0 +1,77 @@
+@import "../_stylebase.scss";
+
+// Inner page (For auth users, News for example)
+//////////////////////////////////////////////////////
+
+.inner-page {
+  position: relative;
+
+  // Rubber Container
+  &__container {
+    position: relative;
+    margin: 0 auto;
+    max-width: 66%;
+    padding-left: $size;
+    padding-right: $size;
+
+    &--fliud {
+      max-width: 100%;
+    }
+
+    @include xs {
+      max-width: 100%;
+      padding-left: $size / 2;
+      padding-right: $size / 2;
+    }
+  }
+
+  &__header {
+    min-height: 90px;
+    background: $color_gray_lighter;
+    padding-top: $size * 1.5;
+    padding-bottom: $size * 1.5;
+  }
+
+  &__body {
+    padding-top: $size * 3;
+    padding-bottom: $size * 4;
+  }
+
+  &__name {
+    position: absolute;
+    top: -150px;
+    left: 0;
+    color: lighten($color_text, ($fade * 2));
+
+    @include xs {
+      top: -40px;
+    }
+  }
+
+  &__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background: $color_white;
+    padding-top: $size;
+    padding-bottom: $size;
+    border-top: 1px solid $color_border;
+
+    @include xs {
+      padding-top: $size / 2;
+      padding-bottom: $size / 2;
+      text-align: center;
+    }
+  }
+
+  &__logout {
+    float: right;
+
+    @include xs {
+      margin-top: $size / 4;
+      float: none;
+    }
+  }
+}
