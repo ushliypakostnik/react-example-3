@@ -8,13 +8,13 @@
   padding-bottom: $size;
   border-bottom: 1px solid $color_border;
 
+  h3 {
+    margin-top: 0;
+  }
+
   h4 {
     margin-top: 0;
     margin-bottom: $size / 2;
     opacity: 0.66;
-  }
-
-  h3 {
-    margin-top: 0;
   }
 }

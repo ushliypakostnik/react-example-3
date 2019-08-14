@@ -59,13 +59,10 @@ $font-weight_sans_semibold: 700;
 // Base Typographic
 //////////////////////////////////////////////////////
 
-// Обычный параграф
 p {
   margin-bottom: $size / 2;
   @include text($font-family_sans, $font-size_small, $font-weight_sans_light);
 }
-
-// Заголовки по умолчанию
 
 h1 {
   @include text($font-family_sans, $font-size_large, $font-weight_sans_semibold);
