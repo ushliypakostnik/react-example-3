@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from 'prop-types';
 
 import { Button } from 'antd';
+import '../../node_modules/antd/lib/button/style/index.css';
 import '../scss/libraries/_button.scss';
 
 import '../scss/widgets/_news.scss';

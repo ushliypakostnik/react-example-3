@@ -9,9 +9,10 @@ import {
   authLogout,
 } from '../store/actions';
 
-import { Pagination } from 'antd';
+import { Pagination, Button } from 'antd';
+import '../../node_modules/antd/lib/button/style/index.css';
+import '../../node_modules/antd/lib/pagination/style/index.css';
 import '../scss/libraries/_pagination.scss';
-import { Button } from 'antd';
 import '../scss/libraries/_button.scss';
 
 import News from '../components/news';

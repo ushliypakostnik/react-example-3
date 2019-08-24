@@ -4,8 +4,10 @@ import { connect } from 'react-redux';
 import { fetchAuth } from '../store/actions';
 
 import { Form, Icon, Input, Button } from 'antd';
+import '../../node_modules/antd/lib/form/style/index.css';
+import '../../node_modules/antd/lib/input/style/index.css';
+import '../../node_modules/antd/lib/button/style/index.css';
 import '../scss/libraries/_form.scss';
-import '../scss/libraries/_input.scss';
 import '../scss/libraries/_button.scss';
 
 import '../scss/widgets/_outer-page.scss';
